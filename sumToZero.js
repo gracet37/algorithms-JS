@@ -25,3 +25,30 @@ function sumToZero(arr) {
 
 sumToZero(arr)
 // Returns [-4,4]
+
+//  FIND ALL SUM PAIRS
+
+let numsArray = [-4,-2,-1,0,1,2,3,5,6]
+let num = 0
+
+function findAllSum(numsArray, num) {
+  let i = 0
+  let j = numsArray.length - 1
+  let pairsArray = []
+  while (i < j) {
+    let sum = numsArray[i] + numsArray[j]
+    if (sum === num) {
+      pairsArray.push([numsArray[i], numsArray[j]])
+      i++ 
+      j--
+//       console.log(pairsArray)
+    } else if (sum > 0){
+      j--
+    } else {
+      i++
+    }
+  }
+  return pairsArray
+}
+
+findAllSum(numsArray, num)
